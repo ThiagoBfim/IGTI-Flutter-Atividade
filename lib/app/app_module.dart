@@ -11,12 +11,10 @@ class AppModule extends Module {
         $AppController,
       ];
 
-
   @override
   final List<ModularRoute> routes = [
     ModuleRoute('/', module: HomeModule()),
     ModuleRoute('/imc', module: ImcModule()),
     ModuleRoute('/todo', module: TodoModule()),
   ];
-
 }

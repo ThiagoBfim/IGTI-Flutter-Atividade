@@ -20,8 +20,7 @@ class TodoPageState extends State<TodoPage> {
   @override
   void initState() {
     super.initState();
-    store.addElement("Flutter modulo 5");
-    store.addElement("Flutter modulo 6");
+    store.loadElements();
   }
 
   @override
@@ -63,7 +62,7 @@ class TodoPageState extends State<TodoPage> {
   void _newTodo() {
     var controller = TextEditingController();
     Widget okButton = ElevatedButton(
-      child: Text("SALVAR"),
+      child: Text("Salvar"),
       onPressed: () {
         store.addElement(controller.text);
         Navigator.pop(context);

@@ -28,6 +28,17 @@ mixin _$TodoStore on _TodoStoreBase, Store {
       ActionController(name: '_TodoStoreBase');
 
   @override
+  void loadElements() {
+    final _$actionInfo = _$_TodoStoreBaseActionController.startAction(
+        name: '_TodoStoreBase.loadElements');
+    try {
+      return super.loadElements();
+    } finally {
+      _$_TodoStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addElement(String nomeAtividade) {
     final _$actionInfo = _$_TodoStoreBaseActionController.startAction(
         name: '_TodoStoreBase.addElement');
