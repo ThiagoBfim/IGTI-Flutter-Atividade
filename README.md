@@ -3,11 +3,11 @@
 Atividade prática do módulo "Projetos de Soluções Móveis Multiplataforma" do IGTI.
 
 <p align="center">
-  <img align="center" src="git-images/flutter_01.png" width="400" border="0">
-  <img align="center" src="git-images/flutter_02.png" width="400" border="0">
-  <img align="center" src="git-images/flutter_03.png" width="400" border="0">
-  <img align="center" src="git-images/flutter_04.png" width="400" border="0">
-  <img align="center" src="git-images/flutter_05.png" width="400" border="0">
+  <img align="center" src="git-images/flutter_01.png" width="200" height="600" border="0" style="padding:5px;">
+  <img align="center" src="git-images/flutter_02.png" width="200" height="600" border="0" style="padding:5px;">
+  <img align="center" src="git-images/flutter_03.png" width="200" height="600" border="0" style="padding:5px;">
+  <img align="center" src="git-images/flutter_04.png" width="200" height="600" border="0" style="padding:5px;">
+  <img align="center" src="git-images/flutter_05.png" width="200" height="600" border="0" style="padding:5px;">
 </p>
 
 ## Start Project
