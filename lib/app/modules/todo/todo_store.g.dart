@@ -24,19 +24,15 @@ mixin _$TodoStore on _TodoStoreBase, Store {
     });
   }
 
-  final _$_TodoStoreBaseActionController =
-      ActionController(name: '_TodoStoreBase');
+  final _$loadElementsAsyncAction = AsyncAction('_TodoStoreBase.loadElements');
 
   @override
-  void loadElements() {
-    final _$actionInfo = _$_TodoStoreBaseActionController.startAction(
-        name: '_TodoStoreBase.loadElements');
-    try {
-      return super.loadElements();
-    } finally {
-      _$_TodoStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future loadElements() {
+    return _$loadElementsAsyncAction.run(() => super.loadElements());
   }
+
+  final _$_TodoStoreBaseActionController =
+      ActionController(name: '_TodoStoreBase');
 
   @override
   void addElement(String nomeAtividade) {
@@ -44,6 +40,28 @@ mixin _$TodoStore on _TodoStoreBase, Store {
         name: '_TodoStoreBase.addElement');
     try {
       return super.addElement(nomeAtividade);
+    } finally {
+      _$_TodoStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void editElement(Todo todo, String nomeAtividade) {
+    final _$actionInfo = _$_TodoStoreBaseActionController.startAction(
+        name: '_TodoStoreBase.editElement');
+    try {
+      return super.editElement(todo, nomeAtividade);
+    } finally {
+      _$_TodoStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void removeElement(Todo todo) {
+    final _$actionInfo = _$_TodoStoreBaseActionController.startAction(
+        name: '_TodoStoreBase.removeElement');
+    try {
+      return super.removeElement(todo);
     } finally {
       _$_TodoStoreBaseActionController.endAction(_$actionInfo);
     }

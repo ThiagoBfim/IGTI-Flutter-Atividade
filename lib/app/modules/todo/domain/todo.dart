@@ -1,27 +1,25 @@
 class Todo {
-  final String _name;
+  String name;
 
   bool done = false;
 
-  Todo(this._name, {this.done = false});
-
-  String get name => _name;
+  Todo(this.name, {this.done = false});
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Todo && runtimeType == other.runtimeType && _name == other._name;
+      other is Todo && runtimeType == other.runtimeType && name == other.name;
 
   @override
-  int get hashCode => _name.hashCode;
+  int get hashCode => name.hashCode;
 
   Todo.fromMap(Map<String, dynamic> map)
       : done = map["done"],
-        _name = map["_name"];
+        name = map["_name"];
 
   Map<String, dynamic> toMap() {
     return {
-      '_name': this._name,
+      '_name': this.name,
       'done': this.done,
     };
   }

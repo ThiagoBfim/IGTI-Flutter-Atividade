@@ -41,21 +41,23 @@ class TodoPageState extends State<TodoPage> {
     return Observer(
         builder: (_) => ListView.builder(
               itemCount: store.todos.length,
-              itemBuilder: (ctx, index) =>
-                  _createItem(store.todos[index]),
+              itemBuilder: (ctx, index) => _createItem(store.todos[index]),
             ));
   }
 
   Widget _createItem(Todo todo) {
-    return CheckboxListTile(
-      title: Text(
-        todo.name,
-        style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 20.0),
+    return GestureDetector(
+      onLongPress: () => _editTodo(todo),
+      child: CheckboxListTile(
+        title: Text(
+          todo.name,
+          style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 20.0),
+        ),
+        value: todo.done,
+        onChanged: (bool? value) {
+          store.changeDone(todo);
+        },
       ),
-      value: todo.done,
-      onChanged: (bool? value) {
-        store.changeDone(todo);
-      },
     );
   }
 
@@ -80,6 +82,47 @@ class TodoPageState extends State<TodoPage> {
       ),
       actions: [
         okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Center(child: alerta);
+      },
+    );
+  }
+
+  void _editTodo(Todo todo) {
+    var controller = TextEditingController();
+    controller.text = todo.name;
+    Widget okButton = ElevatedButton(
+      child: Text("Editar"),
+      onPressed: () {
+        store.editElement(todo, controller.text);
+        Navigator.pop(context);
+      },
+    );
+    Widget removeButton = ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: Colors.red),
+      child: Text("Remover"),
+      onPressed: () {
+        store.removeElement(todo);
+        Navigator.pop(context);
+      },
+    );
+    AlertDialog alerta = AlertDialog(
+      title: Text("Editar Atividade"),
+      content: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: 'Nome da Atividade',
+          border:
+              OutlineInputBorder(borderSide: BorderSide(color: Colors.teal)),
+        ),
+      ),
+      actions: [
+        okButton,
+        removeButton,
       ],
     );
     showDialog(

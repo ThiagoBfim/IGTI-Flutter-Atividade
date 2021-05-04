@@ -6,8 +6,8 @@ import 'package:mobx/mobx.dart';
 part 'todo_store.g.dart';
 
 class TodoStore = _TodoStoreBase with _$TodoStore;
-abstract class _TodoStoreBase with Store {
 
+abstract class _TodoStoreBase with Store {
   final StorageTodo storageTodo = Modular.get<StorageTodo>();
 
   @observable
@@ -16,13 +16,32 @@ abstract class _TodoStoreBase with Store {
   String nomeAtividade = '';
 
   @action
-  void loadElements() async {
+  Future<void> loadElements() async {
     this.todos.addAll(await storageTodo.loadTodos());
   }
 
   @action
   void addElement(String nomeAtividade) {
-    this.todos.add(Todo(nomeAtividade));
+    var todo = Todo(nomeAtividade);
+    if (!this.todos.contains(todo)) {
+      this.todos.add(Todo(nomeAtividade));
+      storageTodo.saveTodos(todos);
+    }
+  }
+
+  @action
+  void editElement(Todo todo, String nomeAtividade) {
+    var indexOf = this.todos.indexOf(todo);
+    todo.name = nomeAtividade;
+    this.todos.insert(indexOf, todo);
+    this.todos.removeAt(indexOf + 1);
+    storageTodo.saveTodos(todos);
+  }
+
+  @action
+  void removeElement(Todo todo) {
+    var indexOf = this.todos.indexOf(todo);
+    this.todos.removeAt(indexOf);
     storageTodo.saveTodos(todos);
   }
 
@@ -31,7 +50,7 @@ abstract class _TodoStoreBase with Store {
     todo.done = !todo.done;
     var indexOf = this.todos.indexOf(todo);
     this.todos.insert(indexOf, todo);
-    this.todos.removeAt(indexOf +1);
+    this.todos.removeAt(indexOf + 1);
     storageTodo.saveTodos(todos);
   }
 }
