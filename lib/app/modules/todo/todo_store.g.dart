@@ -27,7 +27,7 @@ mixin _$TodoStore on _TodoStoreBase, Store {
   final _$loadElementsAsyncAction = AsyncAction('_TodoStoreBase.loadElements');
 
   @override
-  Future loadElements() {
+  Future<void> loadElements() {
     return _$loadElementsAsyncAction.run(() => super.loadElements());
   }
 
