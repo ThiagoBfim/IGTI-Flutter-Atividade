@@ -10,6 +10,9 @@ class ImcModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => ImcPage()),
+    ChildRoute('/',
+        child: (_, args) => ImcPage(),
+        transition: TransitionType.fadeIn,
+        duration: const Duration(milliseconds: 600)),
   ];
 }

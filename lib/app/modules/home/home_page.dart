@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,20 +40,23 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       {required String title, required String asset, required String route}) {
     return GestureDetector(
       onTap: () => _sendToPage(route),
-      child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              "assets/images/$asset.png",
-              height: 100,
-              width: 100,
-            ),
-            Text(
-              "$title",
-              style: TextStyle(fontSize: 25),
-            ),
-          ],
+      child: Hero(
+        tag: Key(asset),
+        child: Card(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/$asset.png",
+                height: 100,
+                width: 100,
+              ),
+              Text(
+                "$title",
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
         ),
       ),
     );

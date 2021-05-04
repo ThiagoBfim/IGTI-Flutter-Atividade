@@ -30,56 +30,60 @@ class ImcPageState extends State<ImcPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset("assets/images/imc.png"),
+              Hero(
+                  tag: Key("imc"), child: Image.asset("assets/images/imc.png")),
               Center(
                 child: Observer(
-                  builder: (_) =>
-                      Form(
-                        key: _formKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            TextFormField(
-                              initialValue: store.peso,
-                              validator: (value) =>
+                  builder: (_) => Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TextFormField(
+                          initialValue: store.peso,
+                          validator: (value) =>
                               value!.isEmpty ? 'Campo obrigatório' : null,
-                              maxLength: 10,
-                              inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter(RegExp(r'^\d+\.?\d{0,2}'), allow: true),
-                              ],
-                              keyboardType: TextInputType.number,
-                              onChanged: store.changePeso,
-                              decoration: InputDecoration(labelText: 'Peso'),
-                            ),
-                            TextFormField(
-                              initialValue: store.altura,
-                              validator: (value) =>
-                              value!.isEmpty ? 'Campo obrigatório' : null,
-                              maxLength: 10,
-                              inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter(RegExp(r'^\d+\.?\d{0,2}'), allow: true),
-                              ],
-                              keyboardType: TextInputType.number,
-                              onChanged: store.changeAltura,
-                              decoration: InputDecoration(labelText: 'Altura'),
-                            ),
-                            SizedBox(height: 20),
-                            SizedBox(
-                              width: 200,
-                              height: 40,
-                              child: ElevatedButton(
-                                onPressed: _calcular,
-                                child: Text("Calcular"),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              store.resultado,
-                              style: TextStyle(fontSize: 35),
-                            ),
+                          maxLength: 10,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter(
+                                RegExp(r'^\d+\.?\d{0,2}'),
+                                allow: true),
                           ],
+                          keyboardType: TextInputType.number,
+                          onChanged: store.changePeso,
+                          decoration: InputDecoration(labelText: 'Peso'),
                         ),
-                      ),
+                        TextFormField(
+                          initialValue: store.altura,
+                          validator: (value) =>
+                              value!.isEmpty ? 'Campo obrigatório' : null,
+                          maxLength: 10,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter(
+                                RegExp(r'^\d+\.?\d{0,2}'),
+                                allow: true),
+                          ],
+                          keyboardType: TextInputType.number,
+                          onChanged: store.changeAltura,
+                          decoration: InputDecoration(labelText: 'Altura'),
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          width: 200,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: _calcular,
+                            child: Text("Calcular"),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          store.resultado,
+                          style: TextStyle(fontSize: 35),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -93,8 +97,8 @@ class ImcPageState extends State<ImcPage> {
     if (_formKey.currentState!.validate()) {
       store.calcular();
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Formulário com erro!")));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Formulário com erro!")));
     }
   }
 }
