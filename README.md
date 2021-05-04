@@ -1,16 +1,26 @@
-# atividade
+# Atividade Prática
 
-A new Flutter project. Created by Slidy
+Atividade prática do módulo "Projetos de Soluções Móveis Multiplataforma" do IGTI.
 
-## Getting Started
+<p align="center">
+  <img align="center" src=".git/images/flutter_01.png" width="400" border="0">
+  <img align="center" src=".git/images/flutter_02.png" width="400" border="0">
+  <img align="center" src=".git/images/flutter_03.png" width="400" border="0">
+  <img align="center" src=".git/images/flutter_04.png" width="400" border="0">
+  <img align="center" src=".git/images/flutter_05.png" width="400" border="0">
+</p>
 
-This project is a starting point for a Flutter application.
+## Start Project
 
-A few resources to get you started if this is your first Flutter project:
+Para iniciar o projeto é necessário instalar o Flutter e executar o comando:
+```
+flutter pub get
+flutter run
+```
+Esse projeto funcionará na Web e no Mobile.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Versão do Flutter: 2.0.6
+Versão do Dart: 2.12.3
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Referências
+- [Flutter](https://flutter.dev/)
