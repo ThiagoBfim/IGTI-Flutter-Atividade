@@ -42,7 +42,7 @@ abstract class MoneyStoreBase with Store {
   Future<void> calcular() async {
     var qtdCedulas = double.parse(qtdReais) / double.parse(priceEuro);
     result =
-        'Com $qtdReais reais é possível obter comprar ${qtdCedulas.toStringAsFixed(2)} a $priceEuro cada';
+        'Com $qtdReais reais é possível comprar ${qtdCedulas.toStringAsFixed(2)} a $priceEuro cada';
   }
 
   @action
