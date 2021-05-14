@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
           _buildCard(title: "IMC", asset: "imc", route: "/imc"),
           _buildCard(title: "TODO", asset: "todo", route: "/todo"),
           _buildCard(title: "CHAT", asset: "chat", route: "/chat"),
+          _buildCard(title: "MONEY", asset: "money", route: "/money"),
         ],
       ),
     );
