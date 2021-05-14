@@ -7,6 +7,8 @@ Atividade prática do módulo "Projetos de Soluções Móveis Multiplataforma" d
   <img align="center" src="git-images/flutter_02.png" width="200" height="500" border="0" style="padding:5px;">
   <img align="center" src="git-images/flutter_04.png" width="200" height="500" border="0" style="padding:5px;">
   <img align="center" src="git-images/flutter_05.png" width="200" height="500" border="0" style="padding:5px;">
+  <img align="center" src="git-images/flutter_06.png" width="200" height="500" border="0" style="padding:5px;">
+
 </p>
 
 ## Start Project
